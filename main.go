@@ -1,17 +1,29 @@
 package main
 
 import (
-	"net/http"
+	"fmt"
+	"goland/database"
 
-	"github.com/go-chi/chi"
-	"github.com/go-chi/chi/middleware"
+	_ "github.com/go-sql-driver/mysql"
 )
 
+// import (
+// 	"net/http"
+
+// 	"github.com/go-chi/chi"
+// 	"github.com/go-chi/chi/middleware"
+// )
+
 func main() {
-	r := chi.NewRouter()
-	r.Use(middleware.Logger)
-	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("welcome"))
-	})
-	http.ListenAndServe(":3000", r)
+
+	db := database.InitDB()
+	defer db.Close()
+	fmt.Println(db)
+
+	// r := chi.NewRouter()
+	// r.Use(middleware.Logger)
+	// r.Get("/", func(w http.ResponseWriter, r *http.Request) {
+	// 	w.Write([]byte("welcome"))
+	// })
+	// http.ListenAndServe(":3000", r)
 }
