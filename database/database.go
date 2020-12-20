@@ -6,7 +6,7 @@ import (
 )
 
 func InitDB() *sql.DB {
-	cadenaConexion := "root:admin@tcp(localhost:3307)/nortwind"
+	cadenaConexion := "root:12345@tcp(localhost:3307)/northwind"
 	db, err := sql.Open("mysql", cadenaConexion)
 	if err != nil {
 		panic(err)
