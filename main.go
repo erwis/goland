@@ -3,10 +3,11 @@ package main
 import (
 	"net/http"
 
+	"goland/database"
+	"goland/product"
+
 	"github.com/go-chi/chi"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/goland/database"
-	"github.com/goland/product"
 )
 
 func main() {
